@@ -9,8 +9,8 @@ createApp({
     }
   },
   methods: {
-    getRecipies(search){
-        fetch(`${api_url}${search}`)
+    getRecipies(url, search){
+        fetch(`${url}${search}`)
         .then(response => response.json())
         .then(data => {
             this.recipes = data.meals
@@ -24,7 +24,7 @@ createApp({
     },
     validateSearch(){
         if(this.search_value.length > 0){
-            this.getRecipies(this.search_value)
+            this.getRecipies(this.api_url, this.search_value)
         }else{
             this.clearRecipies()
             alert('Please enter a search term')
