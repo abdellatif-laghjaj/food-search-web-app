@@ -14,6 +14,7 @@ createApp({
         .then(response => response.json())
         .then(data => {
             this.recipes = data.meals
+            console.log(this.recipes)
             this.clearSearch()
         })
         .catch(error => console.log(error))
