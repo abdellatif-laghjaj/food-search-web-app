@@ -6,15 +6,24 @@
     box-sizing: border-box;
 }
 
+:root{
+    --container-width: 600px;
+    --container-margin: 400px;
+}
+
 body {
     font-family: 'Poppins';
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
 }
 
 .container {
-    width: 500px;
+    width: var(--container-width);
+    max-width: var(--container-width);
+    min-width: var(--container-width);
+    margin: 0 var(--container-margin);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,4 +34,17 @@ body {
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 20px 12px;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header h3{
+    font-size: 24px;
+    font-weight: 800;
+    margin: 8px 0;
 }
