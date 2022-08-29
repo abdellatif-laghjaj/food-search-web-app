@@ -21,6 +21,7 @@ body {
 
 .container {
     width: var(--container-width);
+    
     max-width: var(--container-width);
     min-width: var(--container-width);
     margin: 0 var(--container-margin);
