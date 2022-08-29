@@ -47,20 +47,15 @@ createApp({
         })
         .catch(error => console.log(error))
     },
-    clearRecipies(){
-        this.recipes = []
-    },
     validateSearch(){
         if(this.search_value.length > 0){
             this.getRecipies(this.api_url, this.search_value)
         }else{
-            this.clearRecipies()
             alert('Please enter a search term')
         }
     },
     clearSearch(){
         this.search_value = ''
-        this.clearRecipies()
     }
   },
 }).mount('#app')
