@@ -33,13 +33,13 @@
 
     <div class="food">
       <div v-if="recipes.length > 0">
-          <div class="card lg:card-side bg-base-100 shadow-xl" v-for="recipe in recipes" :key="recipe.id">
+          <div class="card card-side bg-base-100 shadow-xl my-3" v-for="recipe in recipes" :key="recipe.id">
             <figure>
               <img :src="recipe.image" :alt="recipe.name">
             </figure>
             <div class="card-body">
               <h2 class="card-title">{{recipe.name}}</h2>
-              <p>{{recipe.instructions | shorten(100, "...")}}</p>
+              <p>{{recipe.instructions.substring(0, 100)}}...</p>
               <div class="card-actions justify-end">
                 <button class="btn btn-primary">Listen</button>
               </div>
