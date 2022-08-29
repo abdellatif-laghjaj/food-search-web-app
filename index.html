@@ -33,17 +33,18 @@
 
     <div class="food">
       <div v-if="recipes.length > 0">
-        <div v-for="recipe in recipes" :key="recipe.id">
-          <div class="card">
+          <div class="card lg:card-side bg-base-100 shadow-xl" v-for="recipe in recipes" :key="recipe.id">
+            <figure>
+              <img :src="recipe.image" :alt="recipe.name">
+            </figure>
             <div class="card-body">
-              <h2 class="card-title">{{recipe.title}}</h2>
-              <p class="card-subtitle">{{recipe.description}}</p>
-              <div class="card-actions">
-                <a :href="recipe.url" target="_blank" class="btn btn-primary">View Recipe</a>
+              <h2 class="card-title">{{recipe.name}}</h2>
+              <p>{{recipe.instructions | shorten(100, "...")}}</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">Listen</button>
               </div>
             </div>
           </div>
-        </div>
       </div>
       <div v-else>
         <h2>No recipes found</h2>
