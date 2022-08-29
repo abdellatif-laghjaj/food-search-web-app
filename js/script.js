@@ -13,7 +13,35 @@ createApp({
         fetch(`${url}${search}`)
         .then(response => response.json())
         .then(data => {
-            this.recipes = data.meals
+            data.meals.forEach(meal => {
+                this.recipes.push({
+                    id: meal.idMeal,
+                    name: meal.strMeal,
+                    image: meal.strMealThumb,
+                    category: meal.strCategory,
+                    area: meal.strArea,
+                    instructions: meal.strInstructions,
+                    ingredients: [
+                        meal.strIngredient1,
+                        meal.strIngredient2,
+                        meal.strIngredient3,
+                        meal.strIngredient4,
+                        meal.strIngredient5,
+                        meal.strIngredient6,
+                        meal.strIngredient7,
+                        meal.strIngredient8,
+                        meal.strIngredient9,
+                        meal.strIngredient10,
+                    ],
+                    measures: [
+                        meal.strMeasure1,
+                        meal.strMeasure2,
+                        meal.strMeasure3,
+                        meal.strMeasure4,
+                        meal.strMeasure5,
+                    ]
+                })
+            })
             console.log(this.recipes)
             this.clearSearch()
         })
