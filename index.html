@@ -1,59 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Food search</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Food search</title>
-</head>
-
-<body>
-
-  <div class="container" id="app">
-    <header>
-      <h3>Recipe Guide</h3>
-      <div class="form-control w-full">
-        <div class="input-group w-full">
-          <input type="text" placeholder="Search a recipe..." class="input input-bordered w-full"
-            v-model="search_value" />
-          <button class="btn btn-square" @click="validateSearch">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </button>
+  <body>
+    <div class="container" id="app">
+      <header>
+        <h3>Recipe Guide</h3>
+        <div class="form-control w-full">
+          <div class="input-group w-full">
+            <input
+              type="text"
+              placeholder="Search a recipe..."
+              class="input input-bordered w-full"
+              v-model="search_value"
+            />
+            <button class="btn btn-square" @click="validateSearch">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <div class="food">
-      <div v-if="recipes.length > 0">
-          <div class="card card-side bg-base-100 shadow-xl my-3" v-for="recipe in recipes" :key="recipe.id">
+      <div class="food">
+        <div v-if="recipes.length > 0">
+          <div
+            class="card card-side bg-base-100 shadow-xl my-3"
+            v-for="recipe in recipes"
+            :key="recipe.id"
+          >
             <figure>
-              <img :src="recipe.image" :alt="recipe.name">
+              <img :src="recipe.image" :alt="recipe.name" />
             </figure>
             <div class="card-body">
               <h2 class="card-title">{{recipe.name}}</h2>
               <p>{{recipe.instructions.substring(0, 100)}}...</p>
               <div class="card-actions justify-end">
-                <button class="btn btn-primary">Listen</button>
+                <button class="btn btn-primary">
+                  <a :href="recipe.url" target="_blank">View Recipe</a>
+                </button>
               </div>
             </div>
           </div>
-      </div>
-      <div v-else>
-        <h2>No recipes found</h2>
+        </div>
+        <div v-else>
+          <h2>No recipes found</h2>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- JS -->
-  <script src="https://unpkg.com/vue@3"></script>
-  <script src="js/script.js"></script>
-</body>
-
+    <!-- JS -->
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>

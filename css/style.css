@@ -50,3 +50,8 @@ header h3{
     font-weight: 800;
     margin: 8px 0;
 }
+
+.food{
+    height: 64vh;
+    overflow-y: auto;
+}

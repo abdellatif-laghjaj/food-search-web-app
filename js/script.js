@@ -21,6 +21,7 @@ createApp({
                             category: meal.strCategory,
                             area: meal.strArea,
                             instructions: meal.strInstructions,
+                            url: meal.strSource,
                             ingredients: [
                                 meal.strIngredient1,
                                 meal.strIngredient2,
@@ -57,5 +58,8 @@ createApp({
         clearSearch() {
             this.search_value = ''
         }
+    },
+    created() {
+        this.getRecipies(this.api_url, 'chicken')
     },
 }).mount('#app')
